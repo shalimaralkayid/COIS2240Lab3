@@ -9,7 +9,7 @@ import java.io.IOException;
 public class App extends JFrame {
     //Declaring a JTextArea
     private JTextArea textArea;
-
+    private JButton loadButton;
 
 //App Class Constructor.
     public App() {
@@ -29,7 +29,36 @@ public class App extends JFrame {
          * 5-Add an action listener to the button that calls the load CSV function (below)
          * 6-Play around with coloring and styling to make your application look more professional
          */
-        
+
+         // 1. Create a new button named loadButton with text "LoadCSV"
+         loadButton = new JButton("LoadCSV");
+         loadButton.setBackground(Color.RED);
+         loadButton.setForeground(Color.WHITE);
+
+         // 2. Initialize a new TextArea
+        textArea = new JTextArea();
+        // 3. Set the new textArea to be uneditable
+        textArea.setEditable(false);
+        textArea.setBackground(Color.ORANGE);
+        textArea.setForeground(Color.BLACK);
+
+        // 4. Create a JScrollPane within the text area
+        JScrollPane scrollPane = new JScrollPane(textArea);
+
+        // 5. Add an action listener to the button that calls the load CSV function
+        loadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open file chooser dialog
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    // Load selected file
+                    String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+                    loadCsv(filePath);
+                }
+            }
+        });
 
         add(loadButton, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
