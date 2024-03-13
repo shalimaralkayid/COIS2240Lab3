@@ -32,14 +32,14 @@ public class App extends JFrame {
 
          // 1. Create a new button named loadButton with text "LoadCSV"
          loadButton = new JButton("LoadCSV");
-         loadButton.setBackground(Color.RED);
-         loadButton.setForeground(Color.WHITE);
+         loadButton.setBackground(Color.WHITE);
+         loadButton.setForeground(Color.RED);
 
          // 2. Initialize a new TextArea
         textArea = new JTextArea();
         // 3. Set the new textArea to be uneditable
         textArea.setEditable(false);
-        textArea.setBackground(Color.ORANGE);
+        textArea.setBackground(Color.BLUE);
         textArea.setForeground(Color.BLACK);
 
         // 4. Create a JScrollPane within the text area
